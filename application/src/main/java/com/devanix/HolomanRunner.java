@@ -1,6 +1,5 @@
-package com;
+package com.devanix;
 
-import com.devanix.Holoman;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
