@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class HolomanConfiguration {
 
     @Bean
+    @ConditionalOnMissingBean
     public Holoman holoman() {
         Holoman holoman = new Holoman();
         holoman.setHowLong(5);
