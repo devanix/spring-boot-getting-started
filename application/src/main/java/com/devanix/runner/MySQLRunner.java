@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 @Component
-public class H2Runner implements ApplicationRunner {
+public class MySQLRunner implements ApplicationRunner {
     @Autowired
     DataSource dataSource;
 
@@ -23,16 +23,15 @@ public class H2Runner implements ApplicationRunner {
         try (Connection connection = dataSource.getConnection()) {
             String url = connection.getMetaData().getURL();
             String userName = connection.getMetaData().getUserName();
-            String driverName = connection.getMetaData().getDriverName();
-            String driverVersion = connection.getMetaData().getDriverVersion();
+            System.out.println(connection.getClass());
             System.out.println("url = " + url);
             System.out.println("userName = " + userName);
 
-            Statement statement = connection.createStatement();
-            String sql = "CREATE TABLE USER(ID INTEGER NOT NULL, NAME VARCHAR(256), PRIMARY KEY(ID))";
-            statement.executeUpdate(sql);
+//            Statement statement = connection.createStatement();
+//            String sql = "CREATE TABLE USER(ID INTEGER NOT NULL, NAME VARCHAR(256), PRIMARY KEY(ID))";
+//            statement.executeUpdate(sql);
         }
 
-        jdbcTemplate.execute("INSERT INTO USER VALUES (1, 'devanix')");
+//        jdbcTemplate.execute("INSERT INTO USER VALUES (1, 'devanix')");
     }
 }
