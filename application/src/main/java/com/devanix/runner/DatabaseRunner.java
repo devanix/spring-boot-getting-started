@@ -23,15 +23,16 @@ public class DatabaseRunner implements ApplicationRunner {
         try (Connection connection = dataSource.getConnection()) {
             String url = connection.getMetaData().getURL();
             String userName = connection.getMetaData().getUserName();
+            System.out.println(connection.getMetaData().getDriverName());
             System.out.println(connection.getClass());
             System.out.println("url = " + url);
             System.out.println("userName = " + userName);
 
-            Statement statement = connection.createStatement();
-            String sql = "CREATE TABLE ACCOUNT(ID INTEGER NOT NULL, NAME VARCHAR(256), PRIMARY KEY(ID))";
-            statement.executeUpdate(sql);
+//            Statement statement = connection.createStatement();
+//            String sql = "CREATE TABLE ACCOUNT(ID INTEGER NOT NULL, NAME VARCHAR(256), PRIMARY KEY(ID))";
+//            statement.executeUpdate(sql);
         }
 
-        jdbcTemplate.execute("INSERT INTO ACCOUNT VALUES (1, 'devanix')");
+//        jdbcTemplate.execute("INSERT INTO ACCOUNT VALUES (1, 'devanix')");
     }
 }
