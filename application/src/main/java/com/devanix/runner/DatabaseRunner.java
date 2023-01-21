@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.sql.Statement;
 
 @Component
-public class MySQLRunner implements ApplicationRunner {
+public class DatabaseRunner implements ApplicationRunner {
     @Autowired
     DataSource dataSource;
 
@@ -27,11 +27,11 @@ public class MySQLRunner implements ApplicationRunner {
             System.out.println("url = " + url);
             System.out.println("userName = " + userName);
 
-//            Statement statement = connection.createStatement();
-//            String sql = "CREATE TABLE USER(ID INTEGER NOT NULL, NAME VARCHAR(256), PRIMARY KEY(ID))";
-//            statement.executeUpdate(sql);
+            Statement statement = connection.createStatement();
+            String sql = "CREATE TABLE ACCOUNT(ID INTEGER NOT NULL, NAME VARCHAR(256), PRIMARY KEY(ID))";
+            statement.executeUpdate(sql);
         }
 
-//        jdbcTemplate.execute("INSERT INTO USER VALUES (1, 'devanix')");
+        jdbcTemplate.execute("INSERT INTO ACCOUNT VALUES (1, 'devanix')");
     }
 }
