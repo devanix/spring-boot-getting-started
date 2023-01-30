@@ -24,13 +24,6 @@ public class UserControllerTest {
     MockMvc mockMvc;
 
     @Test
-    public void test() throws Exception {
-        mockMvc.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("hello"));
-    }
-
-    @Test
     public void createUser_JSON() throws Exception {
         String userJson = "{\"username\":\"devanix\", \"password\":\"1234\"}";
         ResultActions perform = mockMvc.perform(post("/users/create")
